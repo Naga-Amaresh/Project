@@ -1,0 +1,1280 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200&family=Roboto+Condensed:wght@300;400;700&display=swap');
+
+*,*::before, *::after{
+    margin: 0;  
+    padding: 0;
+    box-sizing: border-box;
+}
+*::selection{
+    background-color: #000000;
+    color: #fff;
+}
+/* ----------------------------------------------------------!!theme Animation!!---------------------------------------------- */
+
+body{
+    --bg-color:#fff;
+    --color:#000;
+    --bg-color2:#111111;
+    --text:#13869a;
+    --color2:#d6d6d6;
+    --pcolor:#dadada;
+    --lcolor:#333333;
+}
+body.dark{
+    --bg-color:#000;
+    --color:#A3A3A3;
+    --bg-color2:#adadad;
+    --text:#13869a;
+    --color2:#151111;
+    --pcolor:#151111;
+    --lcolor:#A3A3A3;
+}
+.dark #sun{
+    display: none;
+}
+#sun{
+    position: absolute;
+    transition: opacity .2s ease;
+    color: var(--bg-color);
+    display: block;
+}
+#moon{
+    display: none;
+    position: absolute;
+    color: var(--bg-color);
+    transition: opacity .2s ease;
+}
+.dark #moon{
+    display: block;
+}
+.btn{
+    height: 25px;
+    width: 25px;
+    background-color: transparent; 
+    position: relative;
+    z-index: 100;
+    pointer-events: all;
+    cursor: pointer;
+
+}
+/* ----------------------------------------------------------!!Game Start Here!!---------------------------------------------- */
+html,body{
+    height: 100%;
+    width: 100%;
+    font-family:'Poppins',Roboto,'sans-serif';
+    background-color: var(--bg-color);
+} 
+
+header{
+    height: 70px;
+    width: 100%;
+    position: fixed;
+    z-index: 9;
+    top: 0;
+    background-color: var(--bg-color);
+    left: 0;
+    top: 0;
+}
+/* ----------------------------------------------------------header nav ---------------------------------------------- */
+
+nav{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;   
+    padding: 0 5vw;
+    overflow: hidden;
+}
+nav .part1 h1 a{
+    color: var(--color);
+    text-decoration: none;
+}
+nav .part2 h4{
+    font-size: 1.2vw;
+    font-weight: 300;
+}
+nav .part1{
+    height: 40px;
+    width: fit-content;
+}
+nav .part1 h1{
+    font-size: 1.9vw;
+    font-weight: 600;
+    position: relative;
+}
+
+nav .part2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4vw;
+}
+nav .part2 h4{
+    font-size: .9vw;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--color2);
+    padding: .5vw 0;
+    position: relative;
+}
+nav .part2 h4 a{
+    text-decoration: none;
+    color: var(--lcolor);
+}
+nav .part3{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    gap: 3vw;
+    margin-right: 3vw;
+}
+nav .part2 .bar{
+    height: 2px;
+    width: 100%;
+    position: absolute;
+    background-color: var(--color);
+    border-radius: 2px;
+    transform: translateX(-100%);
+}
+/* ----------------------------------------------------------hover btn animation---------------------------------------------- */   
+nav .part3 h5 {
+    overflow: hidden;
+    background-color: transparent;
+    color: var(--color);
+    border-radius: 40px;
+    font-size: .9vw;
+    font-weight: 500;
+    position: relative;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: .3s ease;
+    z-index: 1;
+    padding: .4vw 2.2vw;
+    border: 1px solid var(--color);
+}
+nav .part3 a{
+    height: 100%;
+    text-decoration: none;
+    color: var(--color);
+    transition: cubic-bezier(0.19, 1, 0.22, 1) 1s;
+
+}
+.part3 h5 a::after{
+    content: '';
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    position: absolute;
+    background-color: var(--color);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    z-index: -1;
+    transition: cubic-bezier(0.19, 1, 0.22, 1) 1s;
+    
+}
+.part3 h5 a:hover::after{
+    transform: translate(-50%,-50%) scale(1);
+}
+.part3 h5 a:hover{
+    color: var(--bg-color);
+}
+
+
+.part3 .btn:hover::after{
+    transform: translate(-50%,-50%) scale(1);
+}
+.part3 .btn:hover{
+    color: var(--bg-color);
+}
+main{
+    height: 100%;
+    width: 100%;
+    position: relative; 
+    z-index: 8;
+}
+/* ----------------------------------------------------------theme (dark and light)---------------------------------------------- */
+.sidebar{
+    height: 180px;
+    width:55px;
+    background-color: var(--bg-color2);
+    position: fixed;
+    right: 0;
+    bottom:38%;
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: .9vw 0; 
+}
+.theme{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sidebar h5{
+    font-size: 1.3vw;
+    font-weight: 400;
+    color: var(--bg-color);
+}
+.sidebar .menu i{
+    z-index: -1;
+}
+.sidebar .menu{
+    background-color: transparent;
+    height: 40px;
+    width: 40px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    border-radius: 50%;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.menubar{
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--bg-color2);
+    color: var(--bg-color);
+    position: fixed;
+    z-index: 100;
+    top: 129%;
+    padding: 0 10vw;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
+    
+}
+.menubar h1{
+    font-size: 1.5vw;
+}
+.menubar .head{
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5vw;
+    
+}
+.menubar .head .close{
+    background-color: var(--bg-color);
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.menubar .close i{
+    position: absolute;
+    font-size: 2vw;
+    z-index: -1;
+    color: var(--color);
+
+}
+
+.menubar .body{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: calc(100vh - 100px);
+}
+.menubar .body .left{
+    font-size: 3vw;
+}
+.menubar .body .left h5{
+    font-size: 3vw;
+    font-weight: 400;
+    line-height: 6vw;
+    
+}
+.menubar .body .left span{
+    font-size: 1.5vw;
+    font-weight: 100;
+}
+.menubar .body .rightside{
+    display: flex;
+    align-items:flex-start;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 60%;
+    width: 40%;
+    border-left: 1px solid var(--bg-color);
+    position: relative;
+    padding: 4vw;
+}
+
+.menubar .body .rightside .studio h5{
+    font-size: 1.2vw;
+    font-weight: 400;
+    letter-spacing: 3px;
+    margin-bottom: 1vw;
+
+}
+.menubar .body .rightside .studio p{
+    font-size: 15px;
+    color: var(--pcolor);
+}
+.menubar .body .rightside  .contact h5{
+    font-size: 1.2vw;
+    font-weight: 400;
+    letter-spacing: 3px;
+    margin: 0 0 1vw;
+}
+.menubar .body .rightside  .contact h6{
+    font-size: 15px;
+    color: var(--pcolor);
+    font-weight: 200;
+}
+.contact a{
+    text-decoration: none;
+    color: var(--pcolor);
+    font-size: 15px;
+}
+.follow h5{
+    font-size: 1.2vw;
+    font-weight: 400;
+    letter-spacing: 3px;
+}
+.follow .media {
+    font-size: 1.4vw;
+    font-weight: 200;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 28vw;
+    height: 3vw;
+}
+.media h6{
+    font-weight: 300;
+    color: var(--pcolor);
+
+}
+
+/* ----------------------------------------------------------fsection loader aniamtion ---------------------------------------------- */
+.loader{
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    background-color: var(--color);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:.5vw;
+}
+.loader h4{
+    color: var(--bg-color);
+    font-size: 1.5vw;
+    font-weight: 400;
+}
+/* ---------------------------------------------------------- cursosr animation---------------------------------------------- */
+.cursor{
+    height: 20px;
+    width: 20px;background-color: var(--color);
+    position: absolute;
+    z-index: 999;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    transform: translate(-50%,-50%);
+    transition: cubic-bezier(0.19, 1, 0.22, 1) .1s;
+    mix-blend-mode: difference;
+}
+/* ----------------------------------------------------------fsection three---------------------------------------------- */
+.fsection{
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    background-color: var(--bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4vw 2vw 1vw;
+}
+.fsection .left{
+    height: 20%;
+    width: 25vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 8vw 2vw;
+    overflow: hidden;
+
+}
+
+.fsection .left h5{
+    font-weight: 500;
+    font-size: 4.5vw; 
+    line-height: 5vw;
+    color: var(--color);
+
+}
+.fsection .right{
+    height: 100%;
+    width: 75vw;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;    
+    gap: 2vw;   
+    padding: 0 5vw;
+
+}
+.fsection .right .image.noActive{
+    height: 80%;
+    width: 20%;
+    background-color: var(--bg-color);
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    transition: width .9s ease-in-out;
+    box-shadow: 40px 20px 50px -20px var(--color);
+}
+.fsection .image.active{
+    transition: width cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
+    height: 80%;
+    width: 60%;
+    background-color: var(--bg-color);
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 30px 10px 20px -20px var(--color);
+}
+.right .image img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.right .image .overlay{
+    height: 50%;
+    width: 100%;
+    background: linear-gradient(to top,var(--color),transparent);
+    position: absolute;
+    bottom: 0;
+    color: var(--bg-color);
+    padding: 7vw 2vw 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    line-height: 40px;
+    transition: opacity .5s ease-in-out;
+}
+.image .overlay2{
+
+    height: 50%;
+    width: 100%;
+    background: linear-gradient(to top,var(--color),transparent);
+    position: absolute;
+    bottom: 0;
+    color: var(--bg-color);
+    padding: 7vw 2vw 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: opacity .2s ease-in-out;
+    opacity: 0;
+}
+.image .overlay2 h6{
+    font-size: 2vw;
+    color: var(--bg-color);
+
+}
+.image.noActive .overlay{
+    opacity: 0;
+
+}
+.image.noActive .overlay2 h6{
+    rotate: 90deg;
+    position: relative;
+    left: -40px;
+
+}
+.image.noActive .overlay {
+    opacity: 0;
+}
+.image.noActive .overlay2{
+    opacity: 1;
+}
+
+.image.noActive .overlay .last{
+    display: none;
+}
+
+.right .image .overlay h6{
+    font-size: 2vw;
+    font-weight: 600;
+    transition: rotate .5s linear;
+
+}
+.right .image .overlay .last h6{
+    font-size: 3vw; 
+    font-weight: 500;
+
+}
+.right .image .overlay.last p{
+    font-size: 20px;
+}
+/* ----------------------------------------------------------section two---------------------------------------------- */
+
+.ssection{
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    padding-top: 5vw;
+    background-color: var(--bg-color);
+
+    color: var(--color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+
+}
+.heading{
+    height: 20vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+.heading h6{
+    background-color: var(--bg-color);
+    height: 40px;
+    width: fit-content;
+    overflow: hidden;
+}
+.heading p{
+    font-size: 2vw;
+    transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) .3s;
+    color: var(--color);
+
+}
+.links{
+    height: 40px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4vw;
+    overflow: hidden;
+    margin-bottom:2vw;
+}
+
+.links h6{
+    position: relative;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--lcolor);
+}
+.links h6::after{
+    content: "";
+    height: 2px;
+    width: 0%;
+    background-color: var(--color);
+    position: absolute;
+    
+    left: 0;
+    border-radius: 2px;
+    bottom: -4px;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1) .6s;
+}
+.links h6:hover{
+
+    color: var(--color);
+}
+
+.links h6:hover::after{
+    width: 100%;
+}
+/* ----------------------------------------------------------section two swipper animation---------------------------------------------- */
+.swiper {
+    width: 100%;
+    height: 80vh;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    white-space: nowrap;
+    gap: 5vw;
+    
+}
+.swiper-slide .image{
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: inline-block;
+    align-items: center;
+    position: relative;
+    background-color: var(--bg-color);
+    gap: 2vw;
+    left: 20%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    margin-right: 10vw;
+
+}
+
+.swiper-slide  .image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.swiper-pagination{
+    margin-bottom: -.10vw;
+    
+}
+/* ----------------------------------------------------------Section 2 moving text animation---------------------------------------------- */
+.scroll{
+    
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    background-color: var(--bg-color);
+    padding: 2vw 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+.moving-text{
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin-bottom: 1vw;
+}
+.moving-text .boxes{
+    height: 30%;
+    background-color: var(--color);
+    display: inline-block;
+    white-space: nowrap;
+    margin-right: -4.2px;
+    animation: anime 20s infinite linear;
+
+}
+.boxes h1{
+    display: inline-block;
+    color: var(--bg-color);
+    font-size: 10vw;
+}
+.dot{
+    height: 70px;
+    width: 70px;
+    background-color: var(--bg-color);
+    border-radius: 50%;
+
+}
+#two .boxes{
+    animation: anime2 20s infinite linear;
+
+}
+.scroll::-webkit-scrollbar {
+    display: none;
+
+}
+.moving-text::-webkit-scrollbar{
+    display: none;
+}
+
+@keyframes anime {
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(-100%);
+    }
+    
+}
+@keyframes anime2 {
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(100%);
+    }
+    
+}
+/* ----------------------------------------------------------section three---------------------------------------------- */
+
+.three{
+    height: 100vh;
+    width: 100%;
+    background-color: var(--bg-color);
+    position: relative;
+}
+.three .box-container{
+    display: flex;
+    justify-content:flex-end;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    background-color: var(--bg-color);
+    padding: 0 11vw 0 3vw;
+}
+.box{
+    height: 30%;
+    width: 100%;
+    background-color: var(--bg-color);
+    border-bottom: 2px solid var(--color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--color);
+    cursor: pointer;
+}
+.box:hover h1{
+    transform: translateX(100px);
+    color: var(--text);
+    
+}
+.box:hover h5{
+    color: var(--text);
+}
+.box h1{
+    transition: cubic-bezier(0.165, 0.84, 0.44, 1) 1s;
+    font-size: 8vw;
+    font-weight: 600;
+}
+
+.box h5{
+    font-size: 1vw;
+    transition: cubic-bezier(0.165, 0.84, 0.44, 1) 1s;
+
+}
+/* ----------------------------------------------------------section four---------------------------------------------- */
+.four{
+    height: 100vh;
+    width: 100%;
+    background-color: transparent;
+    pointer-events: none;
+}
+footer{
+    height: 100vh;
+    width: 100%;
+    background-color: var(--bg-color2);
+    position: fixed;
+    color: var(--bg-color);
+    bottom: 0;
+    z-index: -9;
+    display: grid;
+    grid-template-columns: 25% 25% 50%;
+    grid-template-rows:60% 30% 10%;
+}
+footer .foot1{
+    color: var(--bg-color);
+    grid-row: 1/2;
+    grid-column: 1/4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.foot1 h1{
+    font-size: 5vw;
+    font-weight: 400;
+}
+.foot1 h5{
+    padding: 1vw 3vw;
+    margin-top: 2vw;
+    font-size: 1vw;
+    background-color: transparent;
+    border-radius: 30px;
+    font-weight: 400;
+    color: var(--bg-color);
+    border: 1px solid var(--bg-color);
+    cursor: pointer;
+    position: relative;
+    z-index: 11;
+    overflow: hidden;
+}
+.foot1 h5::after{
+    content: '';
+    position: absolute;
+    z-index: -1;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    background-color: var(--bg-color);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1) .8s;
+    
+}
+.foot1 h5:hover::after{
+    transform: translate(-50%,-50%) scale(1);
+
+}
+
+.foot1 h5:hover{
+    color: var(--color);
+}
+
+footer .foot2{
+    color: var(--bg-color);
+    grid-row:2/3;
+    grid-column: 1/2;
+}
+.foot2{
+    padding: 4vw 0  0 8vw ;
+
+}
+.foot2 h4{
+    transition: cubic-bezier(0.19, 1, 0.22, 1) 2s;
+
+}
+.foot2 h4:hover{
+    transform:translateX(50px);
+}
+.foot2 a{
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 300;
+    color: var(--color2);
+}
+footer .foot3{
+    color: var(--bg-color);
+    grid-row:2/3;
+    grid-column: 2/3;
+}
+.foot3{
+    padding: 4vw 0  0 8vw ;
+
+}
+.foot3 a{
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 300;
+    color: var(--color2);
+}
+.foot3 h4{
+    transition: cubic-bezier(0.19, 1, 0.22, 1) 2s;
+
+}
+.foot3 h4:hover{
+    transform:translateX(50px);
+}
+
+footer .foot4{
+    color: var(--bg-color);
+    grid-row:2/3;
+    grid-column: 3/4;
+}
+.foot4{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 10vw 0 0 ;
+}
+.foot4 .top{
+
+    position: relative;
+}
+.foot4 .top h1{
+    font-size: 4vw;
+    letter-spacing: 8px;
+    position: relative;
+    font-weight: 600;
+    cursor: pointer;
+    -webkit-text-stroke: .4px var(--color2);
+    background-color: var(--bg-color2);
+    color: transparent;
+    overflow: hidden;
+    transition: cubic-bezier(0.19, 1, 0.22, 1) 1s;
+}
+.foot4 .top h1:hover{
+    color: var(--text);
+    
+}
+.foot4 .bottom{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2vw;
+}
+.foot4 .bottom a{
+    text-decoration: none;
+    color: var(--bg-color);
+    font-weight: 300;
+}
+footer .foot5{
+    color: var(--color2);
+    grid-row: 3/4;
+    grid-column: 1/4;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 12vw;
+    background-color: var(--color);
+}
+.foot5 .text{
+    font-size: 2vw;
+    font-weight: 600;
+}
+.foot5 .text h4{
+    font-weight: 500;
+    margin-right: 5vw;
+}
+.foot5 .Skiller{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1vw;
+}
+.Skiller .arr i{
+    padding: 1vw;
+    background-color: var(--bg-color);
+    color: var(--color);
+    font-size: 1.3vw;
+    font-weight: 600;
+    border-radius: 50%;
+}
+.Skiller .arr a {
+    
+    text-decoration: none;
+}
+.Skiller h1 a{
+    font-weight: 500;
+    text-decoration: none;
+    letter-spacing: 4px;
+    color: var(--bg-color);
+}
+
+
+/* ----------------------------------------------------------Responsive ---------------------------------------------- */
+
+@media (max-width:480px){
+        
+header{
+    background-color: var(--color);
+}
+/* ----------------------------------------------------------header nav ---------------------------------------------- */
+
+nav{
+    display: flex;
+    align-items: center;
+}
+
+nav .part1 h1{
+    bottom: -5px;
+}
+nav .part1 h1 a{
+    color: var(--bg-color);
+    font-size: 6.5vw;
+}
+
+
+nav .part2{
+    display: none;
+}
+
+nav .part3{
+    margin-right: -10px;
+}
+/* ----------------------------------------------------------hover btn animation---------------------------------------------- */
+nav .part3 h5 a{
+    font-size: 4vw;
+    text-decoration: none;
+    color: var(--bg-color);
+    color: var(--bg-color);
+}
+.part3 h5::after{
+    display: none;
+    
+}
+
+main{
+    position: relative; 
+}
+/* ----------------------------------------------------------theme (dark and light)---------------------------------------------- */
+
+.sidebar{
+    width: 15vw;
+    border-radius: 120px;
+    bottom: 40%;
+    height: 50vw;
+    right: 5px;
+    padding: 20px 0;
+}
+.sidebar h5{
+    font-size: 4vw;
+}
+
+.menubar{
+    z-index: 9;
+    top: 140%;
+}
+
+.menubar h1{
+    font-size: 5vw;
+}
+.menubar .close i{
+    font-size: 5vw;
+}
+
+.menubar .body{
+    height: 50vh;
+    margin-top: 20vw;
+}
+.menubar .body .left h5 span{
+    font-size: 4vw;
+}
+
+.menubar .body .left h5{
+    font-size: 7vw;
+    line-height: 18vw;
+    
+}
+.menubar .body .rightside{
+    height: 80%;
+    margin: auto 0;  
+    justify-content: space-evenly;
+}
+
+.menubar .body .rightside .studio h5{
+    font-size: 3vw;
+
+}
+.menubar .body .rightside .studio p{
+    font-size: 12px;
+    line-height: 15px;
+}
+.menubar .body .rightside  .contact h5{
+    font-size: 3vw;
+}
+.menubar .body .rightside  .contact h6{
+    font-size: 12px;
+    line-height: 15px;
+}
+.contact a{
+    font-size: 8px;
+}
+.follow h5{
+    font-size: 3vw;
+}
+.follow .media {
+    font-size: 12px;
+    flex-wrap: wrap;
+}
+.media h6{
+    margin-right: 1px;
+    line-height: 15px;
+
+}
+
+/* ----------------------------------------------------------fsection loader aniamtion ---------------------------------------------- */
+.loader{
+    top: -40px;
+    gap: 2vw;
+}
+.loader h4{
+    font-size:4vw;
+}
+/* ---------------------------------------------------------- cursosr animation---------------------------------------------- */
+.cursor{
+    display: none;
+}
+/* ----------------------------------------------------------fsection three---------------------------------------------- */
+.fsection{
+    min-height: 100vh;
+    flex-direction: column;  
+    position: relative; 
+}
+.fsection .left{
+    height: 40%;
+    width: 100%;
+}
+
+.fsection .left h5{
+    font-size: 10vw;
+    line-height: 9vw;
+    font-weight: 300;  
+}
+.fsection .right{
+    padding: 4vw 5vw;
+    height: 60%;
+    width: 100%;
+    gap: 2vw;
+
+}
+.fsection .right{
+    flex-direction: column;
+    
+}
+.fsection .right .image.noActive{
+    height: 10%;
+    width: 100%;
+    transition: width cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
+}
+.fsection .image.active{
+    transition: width cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
+    height: 100%;
+    width: 100%;
+}
+.right .image img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.image .overlay2 h6{
+    font-size: 6vw;
+
+}
+
+.image.noActive .overlay2 h6{
+    rotate: 0deg;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+}
+/* ----------------------------------------------------------section two---------------------------------------------- */
+.heading p{
+    font-size: 4vw;
+
+}
+
+
+.links h6{
+
+    font-size: 8px;
+}
+.links h6::after{
+    display: none;
+}
+.links h6:hover{
+    display: none;
+}
+/* ----------------------------------------------------------section two swipper animation---------------------------------------------- */
+.swiper {
+    width: 100%;
+    height: 60vh;
+}
+
+.swiper-slide {
+    overflow: hidden;
+}
+.swiper-slide .image{
+    height: 80vw;
+    width: 80vw;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+
+}
+
+
+/* ----------------------------------------------------------Section 2 moving text animation---------------------------------------------- */
+.scroll{
+
+    min-height: 50vh;
+}
+
+
+
+.dot{
+    height: 4vw;
+    width: 4vw;
+    margin-right: 2vw;
+    top: -4px;
+    position: relative;
+
+}
+
+/* ----------------------------------------------------------section three---------------------------------------------- */
+
+.three{
+    height: 50vh;
+}
+
+
+.box h5{
+    font-size: 3vw;
+    font-weight: 300;
+}
+/* ----------------------------------------------------------section four---------------------------------------------- */
+.foot1{
+    height: 40%;
+    position: relative;
+    left: 50%;
+    top: 70%;
+    transform: translate(-50%,-50%);
+
+}
+
+.foot1 h1{
+    font-size: 8vw;
+    font-weight: 400;
+}
+.foot1 h5{
+    margin-top: 4vw;
+    font-size: 2vw;
+    padding: 3vw 10vw;
+}
+.foot1 h5::after{
+    display: none;
+    
+}
+
+.foot2{
+    padding: 4vw 0  0 0vw ;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+
+}
+.foot3{
+    padding: 4vw 0  0 0vw ;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.foot2 a{
+    font-size: 2vw;
+}
+
+.foot3 a{
+
+    font-size: 2vw;
+}
+.foot4 .bottom{
+    line-height: -10px;
+}
+
+
+.foot4 .bottom p{
+    font-size: 2vw;
+}
+.foot4 .bottom a{
+
+    font-size: 2vw;
+}
+.foot5{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Skiller h1 a{
+    font-size: 4vw;
+}
+}
