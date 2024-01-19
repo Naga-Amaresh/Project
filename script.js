@@ -32,7 +32,7 @@ ScrollTrigger.refresh();
 
 }
 
-// locomotiveAnimation();   
+locomotiveAnimation();   
 
 
 function themeAnimation(){
@@ -59,7 +59,7 @@ function menuAnimation(){
                 y:10,
                 opacity:0,
                 duration:.9,
-                delay:1,
+                delay:.3,
                 stagger:.2,
                 ease:"power4.inout",
             })

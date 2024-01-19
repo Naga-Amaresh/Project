@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skiller.</title>
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
     <link rel="shortcut icon" href="favicon-16x16.webp" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
@@ -13,10 +13,66 @@
     rel="stylesheet"/>
 </head>
 <body class="">
+    <section class="sidebar">
+        <h5 class="menu"><i class="ri-menu-fill"></i></h5>
+        <h5>S.</h5>
+        <div class="theme">
+            <i class="ri-sun-fill" id="sun"></i>
+            <i class="ri-moon-fill" id="moon"></i>
+            <div class="btn"></div>
+        </div>
+        
+    </section>
+    <section class="cursor">
+    </section>
+    <section class="menubar">
+        <div class="head">
+            <h1>Skiller.</h1>
+            <h5 class="close">
+                <i class="ri-close-fill"></i>
+            </h5>
+        </div>
+        <div class="body">
+            <div class="left">
+                <h5><span>01. </span>Home</h5>
+                <h5><span>02. </span>Portofolio</h5>
+                <h5><span>03. </span>Works</h5>
+                <h5><span>04. </span>Service</h5>
+                <h5><span>05. </span>Contact</h5>
+            </div>
+            <div class="rightside">
+                <div class="studio">
+                    <h5>Studio</h5>
+                    <h5><p>Lorem ipsum dolor sit amet consectetur.</p></h5>
+                </div>
+                <div class="contact">
+                <h5>Contact</h5>
+                <h6>+00 00000069</h6>
+                <h6>+00 00000069</h6>
+                <h6><a href="#">info@grid.com</a></h6>
+                </div>
+                <div class="follow">
+                    <h5>Follow Us</h5>
+                    <div class="media">
+                        <h6>Behance.</h6>
+                        <h6>Dribble.</h6>
+                        <h6>Linkedin.</h6>
+                        <h6>Twitter.</h6>
+                    </div>
+                </div>
+                
+
+            </div>
+        </div>
+    </section>
+    <section class="loader">
+        <h4>Welcome</h4>
+        <h4>To</h4>
+        <h4>The Fashion</h4>
+        <h4>World</h4>
+    </section>
     <div class="container">
         <!-- --------------------------------curosr-------------------------------------- -->
-        <section class="cursor">
-        </section>
         <!-- ---------------------------------header------------------------------------- -->
         <header>
             <nav>
@@ -35,66 +91,10 @@
             </nav>
         </header>
         <!-- -------------------------------menu bar------------------------ -->
-        <section class="menubar">
-            <div class="head">
-                <h1>Skiller.</h1>
-                <h5 class="close">
-                    <i class="ri-close-fill"></i>
-                </h5>
-            </div>
-            <div class="body">
-                <div class="left">
-                    <h5><span>01. </span>Home</h5>
-                    <h5><span>02. </span>Portofolio</h5>
-                    <h5><span>03. </span>Works</h5>
-                    <h5><span>04. </span>Service</h5>
-                    <h5><span>05. </span>Contact</h5>
-                </div>
-                <div class="rightside">
-                    <div class="studio">
-                        <h5>Studio</h5>
-                        <h5><p>Lorem ipsum dolor sit amet consectetur.</p></h5>
-                    </div>
-                    <div class="contact">
-                    <h5>Contact</h5>
-                    <h6>+00 00000069</h6>
-                    <h6>+00 00000069</h6>
-                    <h6><a href="#">info@grid.com</a></h6>
-                    </div>
-                    <div class="follow">
-                        <h5>Follow Us</h5>
-                        <div class="media">
-                            <h6>Behance.</h6>
-                            <h6>Dribble.</h6>
-                            <h6>Linkedin.</h6>
-                            <h6>Twitter.</h6>
-                        </div>
-                    </div>
-                    
-    
-                </div>
-            </div>
-        </section>
         <!-- -------------------------------main--------------------------------- -->
-            <main>
+        <main>
                 <!-- ---------------------------loader------------------------------ -->
-                <section class="loader">
-                    <h4>Welcome</h4>
-                    <h4>To</h4>
-                    <h4>The Fashion</h4>
-                    <h4>World</h4>
-                </section>
                 <!-- -------------------------------sidebar-------------------------------- -->
-                <section class="sidebar">
-                    <h5 class="menu"><i class="ri-menu-fill"></i></h5>
-                    <h5>S.</h5>
-                    <div class="theme">
-                        <i class="ri-sun-fill" id="sun"></i>
-                        <i class="ri-moon-fill" id="moon"></i>
-                        <div class="btn"></div>
-                    </div>
-                    
-                </section>
                 <!-- ---------------------------------------first section---------------------------- -->
                 <section class="fsection" id="home" data-scroll data-scroll-speed="-1" data-scroll-direction="vertical">
                 
@@ -278,10 +278,8 @@
                     </div>
                 </section>
                 <!-- --------------------------------four section------------------------------------------ -->
-                <section class="four" id="passion"  data-scroll data-scroll-speed="-2" data-scroll-direction="vertical">
-                </section>
             </main>
-            <footer>
+            <footer  data-scroll data-scroll-speed="2" data-scroll-direction="vertical">
                     <div class="foot1">
                         <h1>Discover The New You.</h1>
                         <h5>Get started</h5>
@@ -338,8 +336,8 @@
         
             </footer>
             <!-- -------------------------------footer--------------------------------------- -->
-    </div>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script> -->
+        </div>
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js" integrity="sha512-EZI2cBcGPnmR89wTgVnN3602Yyi7muWo8y1B3a8WmIv1J9tYG+udH4LvmYjLiGp37yHB7FfaPBo8ly178m9g4Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
