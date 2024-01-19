@@ -1,124 +1,117 @@
+function locomotiveAnimation(){
+    gsap.registerPlugin(ScrollTrigger);
+
+// Using Locomotive Scroll from Locomotive https://github.com/locomotivemtl/locomotive-scroll
+
+const locoScroll = new LocomotiveScroll({
+el: document.querySelector(".container"),
+smooth: true
+});
+// each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync positioning)
+locoScroll.on("scroll", ScrollTrigger.update);  
+
+// tell ScrollTrigger to use these proxy methods for the ".container" element since Locomotive Scroll is hijacking things
+ScrollTrigger.scrollerProxy(".container", {
+scrollTop(value) {
+    return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
+  }, // we don't have to define a scrollLeft because we're only scrolling vertically.
+getBoundingClientRect() {
+    return {top: 0, left: 0, width: window.innerWidth, height: window.innerHeight};
+},
+  // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
+pinType: document.querySelector(".container").style.transform ? "transform" : "fixed"
+});
 
 
-let image = document.querySelectorAll(".image");
-let cursor = document.querySelector(".cursor");
-var main = document.querySelector("main");
-let part1 = document.querySelector(".part1");
-let part2 = document.querySelector(".part2");
-let part3 = document.querySelector(".part3");
-let body = document.querySelector("body");
-let icons  = document.querySelector(".icons")
-let a = document.querySelectorAll(".part2 h4 .first");
-let h4 = document.querySelectorAll(".part2 h4");
-let bar = document.querySelectorAll(".part2 .bar"); 
-var fsec = document.querySelector(".fsection");
-let boxcon = document.querySelector(".box-contaier");
-let box = document.querySelectorAll(".box");
-let h1= document.querySelector(".box h1");
-let h5= document.querySelector(".box h5");
-let theme= document.querySelectorAll(".theme");
-let menu = document.querySelector(".sidebar .menu");
-let menubar = document.querySelector(".menubar");
-let cross = document.querySelector(".menubar .head .close");
-let btn = document.querySelector(".theme .btn");
+
+// each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll. 
+ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+
+// after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
+ScrollTrigger.refresh();
+
+}
+
+// locomotiveAnimation();   
 
 
 function themeAnimation(){
-btn.addEventListener("click", () => {
-    document.body.classList.toggle("dark");
-})
+    let btn = document.querySelector(".theme .btn");
+    btn.addEventListener("click", () => {
+        document.body.classList.toggle("dark");
+    })
 }
 themeAnimation();
 
 function menuAnimation(){
+    let menu = document.querySelector(".sidebar .menu");
     menu.addEventListener("click",() => {
         var tl = gsap.timeline();
-        tl.from(".menubar",{
-            y:1000,
-            opacity:1,
-            duration:.9,
-            delay:-1,
-            ease:Power4,
+            
+            tl.to(".menubar",{
+                y:-1000,
+                opacity:1,
+                duration:.6,
+                delay:-1,
+                ease:"power4.inout",
+            })
+            tl.from(".menubar .body h5, .menubar .body h6",{
+                y:10,
+                opacity:0,
+                duration:.9,
+                delay:1,
+                stagger:.2,
+                ease:"power4.inout",
+            })
+            
         })
         
-        tl.to(".menubar",{
-            y:-1000,
-            opacity:1,
-            duration:.9,
-            delay:-1,
-            ease:Power4,
-        })
-        tl.from(".body h5",{
-            y:10,
-            opacity:0,
-            duration:.9,
-            delay:1,
-            stagger:.2
-        })
-        
-    })
-    
+        let cross = document.querySelector(".menubar .head .close");
         cross.addEventListener("click",() => {
-            console.log('here');
             var tl = gsap.timeline();
-        tl.from(".menubar",{
-            y:-1000,
-            duration:.9,
-            delay:-1,
-            ease:Power4,
-    
+            tl.from(".menubar",{
+                y:-1000,
+                duration:.9,
+                delay:-1,
+                ease:"power4.inout",
+                
+            })
+            tl.to(".menubar",{
+                y:1000,
+                duration:.9,
+                delay:-1,
+                ease:"power4.inout",
+            })
+            
         })
-        tl.to(".menubar",{
-            y:1000,
-            duration:.9,
-            delay:-1,
-            ease:Power4,
-        })
-    
-    })
-}
-menuAnimation();
-
-function sliderAnimation(){
-    function moveSlider(){
-        image.forEach(img =>{ img.classList.remove("active"),
-        img.classList.add("noActive")});
-        this.classList.add("active");
-        this.classList.remove("noActive");
+        
     }
-    image.forEach((img) => {
-        img.addEventListener("mouseenter", moveSlider);
-    })
-}
+    menuAnimation();
+    
+    function sliderAnimation(){
+        let image = document.querySelectorAll(".image");
+        function moveSlider(){
+            image.forEach(img =>{ img.classList.remove("active"),
+            img.classList.add("noActive")});
+            this.classList.add("active");
+            this.classList.remove("noActive");
+        }
+        image.forEach((img) => {
+            img.addEventListener("mouseenter", moveSlider);
+        })
+    }
 sliderAnimation();
 
 function cursorAnimation(){
-
-    window.addEventListener("mousemove",function(e){
-        gsap.to(cursor,{
+    document.addEventListener("mousemove",function(e){
+        gsap.to(".cursor",{
             x:e.x,
-            y:e.y
-        })
-        cursor.style.transfrom=`translate(${e.clientX}px, ${e.clientY}px)`;
-    })
+            y:e.y,
+        });
+    });
 }
 cursorAnimation();
 
-function mouseAnimation(){
-    window.addEventListener("mouseleave",function(){
-        gsap.to(cursor,{
-            scale:0,
-            opacity:0
-        })
-    })
-    window.addEventListener("mouseenter",function(){
-        gsap.to(cursor,{
-            scale:1,
-            opacity:1
-        })
-    })
-    
-}
 
 function gsapAnimation(){
 let tl = gsap.timeline();
@@ -141,35 +134,46 @@ tl.to(".loader",{
     y:-1000,
     duration:1,
     display:"none",
+    ease:"ease.inout",
+})
+tl.from("header",{
+    y:-100,
+    duration:1,
+    ease:"ease.inout",
 })
 tl.from(".part1 h1, .part2, .part3 , .icons",{
+    opacity:1,
     y:60,
     duration:1,
-    delay:0,
+    delay:-1,
+    ease:"ease.inout",
 })
 tl.from(" .fsection .left h5",{
-    y:250,
-    delay:0,
-    stagger:.2
+    y:390,
+    delay:.5,
+    stagger:.2,
+    ease:"ease.inout",
 })
 tl.from(" .right",{
     scale:.5,
     opacity:0,
     duration:.5,
-    delay:-.5,
-    stagger:.2
+    delay:-1,
+    stagger:.2,
+    ease:"ease.inout",
 })
 
 gsap.from(".heading p",{
     y:34,
     duration:.3,
     delay:.1,
+    ease:"ease.inout",
     scrollTrigger:{
         trigger:".heading p",
-        scroller:"body",
+        scroller:".container",
         start:"top 90%",
         end:"bottom 70%",
-        scrub:1
+        // scrub:1
         
     }
 })
@@ -178,13 +182,13 @@ gsap.from(".links h6",{
     duration:.3,
     delay:.1,
     stagger:.4,
-    ease:Power4,
+    // ease:"power4.inout",
     scrollTrigger:{
         trigger:".heading p",
-        scroller:"body",
+        scroller:".container",
         start:"top 80%",
         end:"bottom 50%",
-        scrub:1
+        // scrub:1
     }
 })
 gsap.from(".swiper-slide .image",{
@@ -193,7 +197,7 @@ gsap.from(".swiper-slide .image",{
     delay:.1,
     scrollTrigger:{
         trigger:".heading p",
-        scroller:"body",
+        scroller:".container",
         start:"top 50%",
         end:"bottom 10%",
         scrub:3
@@ -204,13 +208,16 @@ gsapAnimation();
 
 // swipper
 
-var swiper = new Swiper(".mySwiper", {
-    spaceBetween: 1,
-    pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-    },
-});
+function swiper(){
+    var swiper = new Swiper(".mySwiper", {
+        spaceBetween: 1,
+        pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+        },
+    });
+}
+swiper()
 
-
+    
 
