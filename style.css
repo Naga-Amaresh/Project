@@ -996,45 +996,21 @@ only screen and (min-width: 1280px) */
 
 @media  only screen and (max-width:480px){    
     nav{
-        display: flex;
-        align-items: center;
-        background-color: red;
     }
-    nav .part1{
-        /* padding-top: 10vh; */
-        background-color: blue;
-        position: relative;
-    }
-
+    
     nav .part1 h1{
-        bottom: 0px;
-        color: black;
-    }
-    nav .part1 h1 a{
-        color: var(--bg-color);
-        font-size: 6.5vw;
+        font-size:8vw;
     }
     nav .part2{
         display: none;
     }
-    nav .part3{
-        margin-right: -10px;
-    }
-    /* ----------------------------------------------------------hover btn animation---------------------------------------------- */
     nav .part3 h5 a{
-        font-size: 4vw;
-        text-decoration: none;
-        color: var(--color);
-    }
-    .part3 h5::after{
-        display: none;
-        
+        font-size: 3vw;
     }
 
     main{
         position: relative; 
     }
-    /* ----------------------------------------------------------theme (dark and light)---------------------------------------------- */
 
     .sidebar{
         width: 15vw;
@@ -1055,90 +1031,56 @@ only screen and (min-width: 1280px) */
     }
     .menubar h1{
         font-size: 5vw;
-        background-color: var(--bg-color2);
-        color: var(--bg-color);
     }
     .menubar .close i{
         font-size: 5vw;
     }
 
     .menubar .body{
-        height: 50vh;
-        margin-top: 20vw;
+        background-color: var(--bg-color2);
+        color: var(--bg-color);
+        padding-bottom: 50vw;
     }
     .menubar .left{
-        color: white;
+        height: 70%;
+        width: 50%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-evenly;
+        flex-direction: column;
+        padding-left: 2vw;
+
     }
     .menubar .body .left h5{
-        /* background-color: #fff; */
-        color: var(--bg-color);
+        font-size: 6vw;
     }
     .menubar .body .left h5 span{
         font-size: 4vw;
-        color: var(--bg-color);
-    }
-
-    .menubar .body .left h5{
-        font-size: 7vw;
-        line-height: 18vw;
-        color: #fff;
-        transition: cubic-bezier(0.19, 1, 0.22, 1).5s;
-        
     }
     .menubar .body .rightside{
-        height: 80%;
-        margin: auto 0;  
+        display: flex;
+        align-items: flex-start;
         justify-content: space-evenly;
-        background-color: var(--bg-color2);
-        color:white;  
-    }
-
-    .menubar .body .rightside .studio h5{
-        font-size: 3vw;
-        transition: cubic-bezier(0.19, 1, 0.22, 1).5s;
-        color: white;
-
-    }
-    .menubar .body .rightside .studio p{
-        font-size: 12px;
-        line-height: 15px;
-        transition: cubic-bezier(0.19, 1, 0.22, 1).5s;
-        color: white;
-    }
-    .menubar .body .rightside  .contact h5{
-        font-size: 3vw;
-        transition: cubic-bezier(0.19, 1, 0.22, 1).5s;
-    }
-    .menubar .body .rightside  .contact h6{
-        font-size: 12px;
-        line-height: 15px;
-        transition: cubic-bezier(0.19, 1, 0.22, 1).5s;
-        background-color: #fff;
-    }
-    .contact a{
-        font-size: 8px;
-        color: white;
-    }
-    .menubar .body .rightside .follow .media{
-        margin-bottom: 2vw;
-        transition: cubic-bezier(0.19, 1, 0.22, 1).5s;
-        color: white;
-    }
-    .follow h5{
-        font-size: 3vw;
-        transition: cubic-bezier(0.19, 1, 0.22, 1).5s;
-        color: white;
-    }
-    .follow .media {
-        font-size: 12px;
+        flex-direction: column;
         flex-wrap: wrap;
-        color: #fff;
+        box-sizing: border-box;
+        padding: 0 4vw;
+    }
+
+    .menubar .body .rightside .studio h5 , .menubar .body .rightside .contact h5 , .menubar .body .rightside .follow h5{
+        font-size: 2.5vw;
+        letter-spacing: 0px;
+    }
+    .menubar .body .rightside .studio p, .menubar .body .rightside  .contact h5,.menubar .body .rightside  .contact h6,.menubar .body .rightside  .contact h6 a{
+        font-size: 2.5vw;
+    }
+
+    .follow .media {
+        flex-wrap: wrap;
     }
     .media h6{
-        margin-right: 1px;
-        line-height: 15px;
+        font-size: 3vw;
     }
-
     /* ----------------------------------------------------------fsection loader aniamtion ---------------------------------------------- */
     .loader{
         top: -40px;
