@@ -215,8 +215,8 @@ main{
 }
 /* ----------------------------------------------------------theme (dark and light)---------------------------------------------- */
 .sidebar{
-    height: 180px;
-    width:55px;
+    height: 200px;
+    width:50px;
     background-color: var(--bg-color2);
     color: var(--bg-color);
     position: fixed;
@@ -227,12 +227,15 @@ main{
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
-    padding: .9vw 0; 
+    padding: 2vw; 
 }
 .theme{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.theme i{
+    font-size: 1vw;
 }
 .sidebar h5{
     font-size: 1.3vw;
@@ -240,6 +243,7 @@ main{
     color: var(--bg-color);
 }
 .sidebar .menu i{
+    font-size: 1vw;
     z-index: -1;
 }
 .sidebar .menu{
@@ -262,12 +266,13 @@ main{
     color: var(--bg-color);
     position: fixed;
     z-index: 100;
-    top: 128.9%;
+    top: 100vh;
     padding: 0 10vw;
     transition: cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
     
 }
 .menubar h1{
+    padding: 1vw 0;
     font-size: 1.5vw;
     color: var(--bg-color);
 }
@@ -405,6 +410,7 @@ main{
     align-items: center;
     justify-content: center;
     gap:.5vw;
+    transition: cubic-bezier(0.215, 0.610, 0.355, 1)1s;
 }
 .loader h4{
     color: var(--bg-color);
@@ -424,7 +430,7 @@ main{
     transform: translate(-50%,-50%);
     transition: cubic-bezier(0.19, 1, 0.22, 1) .1s;
     pointer-events: none;
-    /* mix-blend-mode: difference; */
+
 }
 /*----------------------------------------------------------fsection three---------------------------------------------- */
 .fsection{
@@ -438,7 +444,7 @@ main{
     padding: 4vw 2vw 1vw;
 }
 .fsection .left{
-    height: 20%;
+    height: 10vw;
     width: 25vw;
     display: flex;
     align-items: center;
@@ -446,12 +452,11 @@ main{
     flex-direction: column;
     padding: 8vw 2vw;
     overflow: hidden;
-
 }
-
 .fsection .left h5{
+
     font-weight: 500;
-    font-size: 4.5vw; 
+    font-size: 4vw; 
     line-height: 5vw;
     color: var(--color);
 
@@ -795,10 +800,7 @@ footer{
     height: 100vh;
     width: 100%;
     background-color: var(--bg-color2);
-    /* position: fixed; */
     color: var(--bg-color);
-    /* bottom: 0; */
-    /* z-index: ; */
     display: grid;
     grid-template-columns: 25% 25% 50%;
     grid-template-rows:62% 28% 10%;
@@ -981,18 +983,6 @@ footer .foot5{
     letter-spacing: 4px;
     color: var(--bg-color);
 }
-/*
-# Mobile
-only screen and (min-width: 480px)
-
-# Tablet
-only screen and (min-width: 768px) 
-
-# Desktop
-only screen and (min-width: 992px)
-
-# Huge
-only screen and (min-width: 1280px) */
 
 @media  only screen and (max-width:480px){    
     
@@ -1019,6 +1009,12 @@ only screen and (min-width: 1280px) */
         padding: 20px 0;
     }
     .sidebar h5{
+        font-size:4vw;
+    }
+    .sidebar .menu i{
+        font-size: 4vw;
+    }
+    .sidebar .theme i{
         font-size: 4vw;
     }
     .menubar{
@@ -1079,7 +1075,6 @@ only screen and (min-width: 1280px) */
     .media h6{
         font-size: 3vw;
     }
-    /* ----------------------------------------------------------fsection loader aniamtion ---------------------------------------------- */
     .loader{
         top: -40px;
         gap: 2vw;
@@ -1087,11 +1082,9 @@ only screen and (min-width: 1280px) */
     .loader h4{
         font-size:4vw;
     }
-    /* ---------------------------------------------------------- cursosr animation---------------------------------------------- */
     .cursor{
         display: none;
     }
-    /* ----------------------------------------------------------fsection three---------------------------------------------- */
     .fsection{
         min-height: 100vh;
         flex-direction: column;  
@@ -1264,7 +1257,7 @@ only screen and (min-width: 1280px) */
     }
 }
 
-@media  only screen and (max-width:768px){    
+@media  only screen and (480 <= width <= 1020px){    
     nav{
         height: 120px;
     }
@@ -1296,12 +1289,11 @@ only screen and (min-width: 1280px) */
     .menubar{
         z-index: 100;
         top: 100%;
-        color: white;
         height: 100vh;
         padding: 4vw;
     }
     .sidebar .theme i{ 
-        font-size: 3vw;
+        font-size: 4vw;
     }
     .menubar h1{
         font-size: 5vw;
@@ -1323,8 +1315,6 @@ only screen and (min-width: 1280px) */
         justify-content: space-evenly;
         flex-direction: column;
         padding: 2vw;
-        background-color: red;
-
     }
     .menubar .body .left h5{
         font-size: 6vw;
@@ -1357,7 +1347,6 @@ only screen and (min-width: 1280px) */
     .media h6{
         font-size: 3vw;
     }
-    /* ----------------------------------------------------------fsection loader aniamtion ---------------------------------------------- */
     .loader{
         top: -40px;
         gap: 2vw;
@@ -1365,11 +1354,9 @@ only screen and (min-width: 1280px) */
     .loader h4{
         font-size:4vw;
     }
-    /* ---------------------------------------------------------- cursosr animation---------------------------------------------- */
     .cursor{
         display: none;
     }
-    /* ----------------------------------------------------------fsection three---------------------------------------------- */
     .fsection{
         min-height: 100vh;
         flex-direction: column;  
@@ -1430,7 +1417,6 @@ only screen and (min-width: 1280px) */
     .right .last h6, .right .last p{
         font-size: 6vw;
     }
-    /* ----------------------------------------------------------section two---------------------------------------------- */
     .heading p{
         font-size: 4vw;
     }
@@ -1444,7 +1430,6 @@ only screen and (min-width: 1280px) */
     .links h6:hover{
         display: none;
     }
-    /* ----------------------------------------------------------section two swipper animation---------------------------------------------- */
     .swiper {
         width: 100%;
         height: 60vh;
@@ -1460,7 +1445,6 @@ only screen and (min-width: 1280px) */
         top: 50%;
         transform: translate(-50%,-50%);
     }
-    /* ----------------------------------------------------------Section 2 moving text animation---------------------------------------------- */
     .scroll{
 
         min-height: 50vh;
@@ -1473,7 +1457,6 @@ only screen and (min-width: 1280px) */
         position: relative;
     }
 
-    /* ----------------------------------------------------------section three---------------------------------------------- */
 
     .three{
         height: 50vh;
@@ -1483,7 +1466,6 @@ only screen and (min-width: 1280px) */
         font-size: 3vw;
         font-weight: 300;
     }
-    /* ----------------------------------------------------------section four---------------------------------------------- */
     .foot1{
         height: 40%;
         position: relative;
@@ -1540,6 +1522,6 @@ only screen and (min-width: 1280px) */
     .Skiller h1 a{
         font-size: 4vw;
     }
-}
+} 	
 
 

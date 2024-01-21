@@ -49,7 +49,7 @@ function menuAnimation(){
         var tl = gsap.timeline();
             
             tl.to(".menubar",{
-                y:-1000,
+                y:-779,
                 opacity:1,
                 duration:.6,
                 delay:-1,
@@ -69,18 +69,11 @@ function menuAnimation(){
         let cross = document.querySelector(".menubar .head .close");
         cross.addEventListener("click",() => {
             var tl = gsap.timeline();
-            tl.from(".menubar",{
-                y:-1000,
-                duration:.9,
-                delay:-1,
-                ease:"power4.inout",
-                
-            })
             tl.to(".menubar",{
-                y:1000,
+                y:779,
                 duration:.9,
                 delay:-1,
-                ease:"power4.inout",
+                // ease:"power4.inout",
             })
             
         })
@@ -130,11 +123,9 @@ tl.to(".loader h4",{
     opacity:0
 })  
 tl.to(".loader",{
-
     y:-1000,
     duration:1,
     display:"none",
-    ease:"ease.inout",
 })
 tl.from("header",{
     y:-100,
@@ -173,7 +164,6 @@ gsap.from(".heading p",{
         scroller:".container",
         start:"top 90%",
         end:"bottom 70%",
-        // scrub:1
         
     }
 })
@@ -182,13 +172,11 @@ gsap.from(".links h6",{
     duration:.3,
     delay:.1,
     stagger:.4,
-    // ease:"power4.inout",
     scrollTrigger:{
         trigger:".heading p",
         scroller:".container",
         start:"top 80%",
         end:"bottom 50%",
-        // scrub:1
     }
 })
 gsap.from(".swiper-slide .image",{
