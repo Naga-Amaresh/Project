@@ -1015,11 +1015,11 @@ footer .foot5{
         font-size: 4vw;
     }
     .sidebar .theme i{
-        font-size: 4vw;
+        font-size: 4vw      ;
     }
     .menubar{
         z-index: 100;
-        top: 142%;
+        top: 100vh;
         color: white;
         height: 100vh;
     }
@@ -1076,11 +1076,14 @@ footer .foot5{
         font-size: 3vw;
     }
     .loader{
-        top: -40px;
+        height: 100vh;
+        width: 100vw;
         gap: 2vw;
     }
     .loader h4{
         font-size:4vw;
+        top: -70px;
+        position: relative; 
     }
     .cursor{
         display: none;
