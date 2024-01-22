@@ -26,11 +26,12 @@ body{
     --color2:#d6d6d6;
     --pcolor:#dadada;
     --lcolor:#333333;
+    background-color: #000;
 }
 body.dark{
     --bg-color:#000;
     --color:#A3A3A3;
-    --cursor-color:#A3A3A3;
+    --cursor-color:#A3A
     --bg-color2:#adadad;
     --text:#13869a;
     --color2:#151111;
