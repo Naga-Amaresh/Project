@@ -26,7 +26,6 @@ body{
     --color2:#d6d6d6;
     --pcolor:#dadada;
     --lcolor:#333333;
-    background-color: #000;
 }
 body.dark{
     --bg-color:#000;
